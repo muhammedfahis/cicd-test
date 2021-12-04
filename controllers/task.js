@@ -1,5 +1,5 @@
 
-const TaskList = require('../model/taskModel');
+const TaskList = require('../model/task');
 const mongoose = require('mongoose');
 
 

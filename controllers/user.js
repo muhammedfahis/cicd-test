@@ -1,4 +1,4 @@
-const UserList = require('../model/UserModel');
+const UserList = require('../model/user');
 const { jwtSignInFunction } = require("../libs/jwt/jwtFunctions");
 
 const tutor ={

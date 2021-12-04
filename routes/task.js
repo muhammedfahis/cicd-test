@@ -1,8 +1,8 @@
 const express = require('express');
 const {jwtVerifiyer} = require('../libs/middlewares/middlewares')
-const {  addTask, deleteTask } = require('../controllers/taskController');
+const {  addTask, deleteTask } = require('../controllers/task');
 const router = express.Router();
-// router.use(jwtVerifiyer)
+router.use(jwtVerifiyer)
 
 
 

@@ -5,9 +5,9 @@ const request = require('supertest');
 
 
 describe('Test Api End Points', () => {
-    it('should login tutor', (done) => {
+    it('should login user', (done) => {
         request(app)
-        .post('/tutor/login')
+        .post('/user/login')
         .send({
             email: 'tutor@gmail.com',
             password: '123'
@@ -18,37 +18,21 @@ describe('Test Api End Points', () => {
 
     it('add list', (done) => {
         request(app)
-            .post('/tutor/addlist')
-            .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1dG9yQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiMTIzIiwiaWF0IjoxNjEwODIxOTE3fQ.XELN4fXzRS_aDvjvRn4MgpL_lSPqBx06bU-vzAEqdS8')
+            .post('/task/addlist')
+            .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwicGFzc3dvcmQiOiIxMjMiLCJpYXQiOjE2Mzg2MTgzNTJ9.-YPZrwwxHAkD7PiN_0LG4v3uwGUlgdyzNGC_ND2FUeI')
 
             .send({
-                "name": "musthu",
-                "reg_No": 123,
-                "subOne": 23,
-                "subTwo": 49,
-                "subThree": 55,
-                "total": 452
+                "name": "Task-1",
+                "status": 'Pending',
             })
             .expect(201)
             .then(res => done())
     });
 
-    it('Edit list', (done) => {
-        request(app)
-            .patch('/tutor/(id here)')
-            .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1dG9yQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiMTIzIiwiaWF0IjoxNjEwODIxOTE3fQ.XELN4fXzRS_aDvjvRn4MgpL_lSPqBx06bU-vzAEqdS8')
-
-            .send({
-                "name": "fahis",
-                
-            })
-            .then(res => done())
-    });
-
     it('Delete list', (done) => {
         request(app)
-            .delete('/tutor/(id here)')
-            .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1dG9yQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiMTIzIiwiaWF0IjoxNjEwODIxOTE3fQ.XELN4fXzRS_aDvjvRn4MgpL_lSPqBx06bU-vzAEqdS8')    
+            .delete('/task/(id here)')
+            .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwicGFzc3dvcmQiOiIxMjMiLCJpYXQiOjE2Mzg2MTgzNTJ9.-YPZrwwxHAkD7PiN_0LG4v3uwGUlgdyzNGC_ND2FUeI')    
             
             .then(res => done())
     });
