@@ -9,7 +9,7 @@ describe('Test Api End Points', () => {
         request(app)
         .post('/user/login')
         .send({
-            email: 'tutor@gmail.com',
+            email: 'test@gmail.com',
             password: '123'
         })
         .expect(200)
