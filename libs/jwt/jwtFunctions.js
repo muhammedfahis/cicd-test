@@ -1,35 +1,38 @@
 const jwt = require('jsonwebtoken');
 
 
-async function jwtSignInFunction(payload) {   
+async function jwtSignInFunction(payload) {
 
     try {
-        console.log('jwt called');
-        const strToken = await jwt.sign(payload,'publickey',);
-        return strToken;
+        const strToken = await jwt.sign(payload, process.env.SECRET_KEY, {
+            expiresIn: "1d"
+        });
+        return "Bearer " + strToken;
     } catch (error) {
         new Error(error)
     }
 }
 
-const jwtVerifyFunction = async(strToken) =>{
+const jwtVerifyFunction = async (strToken) => {
     try {
-        return await jwt.verify(strToken,'publickey')
+        return await jwt.verify(strToken, process.env.SECRET_KEY)
     } catch (error) {
         new Error(error)
     }
 }
 
-const jwtDecodeFunction =async (token) =>{
+const jwtDecodeFunction = async (token) => {
     try {
-        return jwt.decode(token,{complete:true})
+        return jwt.decode(token, {
+            complete: true
+        })
     } catch (error) {
         new Error(error)
     }
 }
 
 
-module.exports={
+module.exports = {
     jwtSignInFunction,
     jwtVerifyFunction,
     jwtDecodeFunction

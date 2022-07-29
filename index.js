@@ -1,23 +1,31 @@
 const express = require('express');
-const bodyParser= require('body-parser');
+const bodyParser = require('body-parser');
 const path = require('path');
 const dotenv = require('dotenv');
-const taskRouter = require('./routes/task');
+const taskRouter = require('./routes/vegitable');
 const userRouter = require('./routes/user');
+const passport = require('passport');
+const passportconfig = require('./libs/passport/passport');
+const cors = require('cors');
 
 
 
-const app =  express();
+const app = express();
 dotenv.config();
 
-app.use(bodyParser.json({limit:"30mb",extended:true}));
-app.use(bodyParser.urlencoded( {limit:'30mb',extended:true}));
+app.use(cors());
+app.use(bodyParser.json({
+    limit: "30mb",
+    extended: true
+}));
+app.use(bodyParser.urlencoded({
+    limit: '30mb',
+    extended: true
+}));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/task',taskRouter);
-app.use('/user',userRouter);
-app.get('/',(req,res)=>{
-    res.sendFile(path.join(__dirname,'public/index.html'))
-})
+app.use('/vegitable', taskRouter);
+app.use('/user', userRouter);
 
 
-module.exports =app;
+
+module.exports = app;
