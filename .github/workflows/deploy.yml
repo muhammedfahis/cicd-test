@@ -5,22 +5,22 @@ on:
     branches: [ "vegitables" ]
 
 jobs: 
-  build:
-    strategy:
-      matrix:
-        node-version: [14.x]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: use nodejs
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{matrix.node-version}}
-      - name: build site
-        run: |
-          docker-compose up --build
-        env:
-          CI: true
+  # build:
+  #   strategy:
+  #     matrix:
+  #       node-version: [14.x]
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - name: use nodejs
+  #       uses: actions/setup-node@v1
+  #       with:
+  #         node-version: ${{matrix.node-version}}
+  #     - name: build site
+  #       run: |
+  #         docker-compose up --build
+  #       env:
+  #         CI: true
   
   deploy:
     needs: [build]
