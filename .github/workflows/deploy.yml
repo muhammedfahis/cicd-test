@@ -7,7 +7,7 @@ on:
 jobs: 
   build:
     strategy:
-      metrix:
+      matrix:
         node-version: [14.x]
     runs-on: ubuntu-latest
     steps:
