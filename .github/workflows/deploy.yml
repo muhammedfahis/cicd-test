@@ -13,10 +13,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: use nodejs
-      - uses: actions/setup-node@v1
+        uses: actions/setup-node@v1
         with:
           node-version: ${{metrix.node-version}}
-      - name: build
+      - name: build site
         run: |
           docker-compose up --build
         env:
