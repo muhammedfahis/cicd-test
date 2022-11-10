@@ -29,7 +29,7 @@ jobs:
 
     steps: 
       - name: connect to SSH
-        uses: appleboy/ssh-action@master
+      - uses: appleboy/ssh-action@master
         with:
             host: ${{secrets.HOST}}     
             username: ${{secrets.USER}}     
