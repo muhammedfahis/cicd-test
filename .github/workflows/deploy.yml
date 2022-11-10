@@ -17,6 +17,9 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: ${{metrix.node-version}}
+      - name: build
+        run: |
+          docker-compose up --build
         env:
           CI: true
   
