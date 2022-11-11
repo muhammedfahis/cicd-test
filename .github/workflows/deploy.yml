@@ -41,4 +41,5 @@ jobs:
                 git pull origin vegitables
                 sudo docker stop $(docker ps -a -q)
                 sudo docker rm $(docker ps -a -q)
-                sudo docker-compose up --build  
+                sudo docker-compose up --build 
+                echo 'deployment completed.' 
