@@ -39,8 +39,6 @@ jobs:
                 whoami
                 cd  ./cicd-test
                 git pull origin vegitables
-                sudo chown -R `whoami` ~/.npm
-                sudo chown -R `whoami` /usr/local/lib/node_modules
-                sudo npm install -g pm2
-                alias docker-compose='docker compose'
+                sudo docker stop $(docker ps -a -q)
+                sudo docker rm $(docker ps -a -q)
                 sudo docker-compose up --build  
