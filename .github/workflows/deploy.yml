@@ -37,7 +37,7 @@ jobs:
             KEY: ${{secrets.KEY}}     
             script: |
                 whoami
-                cd -/cicd-test
+                cd  ./cicd-test
                 git pull origin vegitables
                 sudo chown -R `whoami` ~/.npm
                 sudo chown -R `whoami` /usr/local/lib/node_modules
