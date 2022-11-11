@@ -39,6 +39,6 @@ jobs:
                 npm install -g pm2
                 docker stop $(docker ps -a -q)
                 docker rm $(docker ps -a -q)
-                cd -/A-Tech-Solution-angular
+                cd -/cicd-test
                 git pull origin vegitables
                 docker-compose up --build  
