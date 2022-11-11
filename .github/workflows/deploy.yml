@@ -43,6 +43,6 @@ jobs:
                 sudo docker stop $(docker ps -a -q)
                 sudo docker rm $(docker ps -a -q)
                 sudo docker-compose -f "docker-compose.yml" up -d --build
-      - name: stop containers
-        if: always()
-        run: docker-compose -f "docker-compose.yml" down 
+      - name: exit
+        run: |
+          echo 'deployment completed.' 
