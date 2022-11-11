@@ -36,10 +36,10 @@ jobs:
             PORT: ${{secrets.PORT}}  
             KEY: ${{secrets.KEY}}     
             script: |
-                  whoami
-                # npm install -g pm2
-                # docker stop $(docker ps -a -q)
-                # docker rm $(docker ps -a -q)
-                # cd -/cicd-test
-                # git pull origin vegitables
-                # docker-compose up --build  
+                whoami
+                npm install -g pm2
+                docker stop $(docker ps -a -q)
+                docker rm $(docker ps -a -q)
+                cd -/cicd-test
+                git pull origin vegitables
+                docker-compose up --build  
