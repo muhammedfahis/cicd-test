@@ -42,6 +42,4 @@ jobs:
                 sudo chown -R `whoami` ~/.npm
                 sudo chown -R `whoami` /usr/local/lib/node_modules
                 sudo npm install -g pm2
-                docker stop $(docker ps -a -q)
-                docker rm $(docker ps -a -q)
                 docker-compose up --build  
