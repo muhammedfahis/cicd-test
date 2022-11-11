@@ -23,10 +23,6 @@ jobs:
         env: 
           CI: true
 
-  debug:
-    description: 'enable debug mode'
-    default: false
-    
   deploy:
     needs: [build]
     runs-on: ubuntu-latest
