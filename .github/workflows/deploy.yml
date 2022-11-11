@@ -24,6 +24,7 @@ jobs:
           CI: true
 
   deploy:
+    timeout-minutes: 10
     needs: [build]
     runs-on: ubuntu-latest
 
@@ -41,5 +42,7 @@ jobs:
                 git pull origin vegitables
                 sudo docker stop $(docker ps -a -q)
                 sudo docker rm $(docker ps -a -q)
-                sudo docker-compose up --build 
-                echo 'deployment completed.' 
+                sudo docker-compose -f "docker-compose.yml" up -d --build
+      - name: stop containers
+        if: always()
+        run: docker-compose -f "docker-compose.yml" down 
