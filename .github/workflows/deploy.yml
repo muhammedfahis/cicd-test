@@ -43,6 +43,17 @@ jobs:
                 sudo docker stop $(docker ps -a -q)
                 sudo docker rm $(docker ps -a -q)
                 sudo docker-compose -f "docker-compose.yml" up -d --build
+      - name: Send some mail
+        uses: wadeww/send-email-action@master
+        with:
+          server_address: smtp.gmail.com
+          port: 465
+          username: ${{secrets.MAIL_USERNAME}}
+          password: ${{secrets.MAIL_PASSWORD}}
+          subject: Workflow finished
+          body: Job completed ${{job.status}}
+          to: muhammedfayiscc@gmail.com
+          from: Me
       - name: exit
         run: |
           echo 'deployment completed.' 
