@@ -54,13 +54,12 @@ jobs:
           body: Job completed ${{job.status}}
           to: muhammedfayiscc@gmail.com
           from: Me
-      - name: Invoke deployment hook
-        uses: distributhor/workflow-webhook@v2
+      - name: Notify slack
         env:
-          webhook_type: 'json-extended'
-          webhook_url: ${{ secrets.WEBHOOK_URL }}
-          webhook_secret: ${{ secrets.WEBHOOK_SECRET }}
-          data: '{ "weapon": "hammer", "drink" : "beer" }'
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        uses: pullreminders/slack-action@master
+        with:
+          args: '{\"channel\":\"T01LF2T0U11\",\"text\":\"Hello world\"}'
       - name: exit
         run: |
           echo 'deployment completed.' 
