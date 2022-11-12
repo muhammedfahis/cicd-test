@@ -59,7 +59,8 @@ jobs:
         env:
           webhook_type: 'json-extended'
           webhook_url: ${{secrets.WEBHOOK_URL}}
-          webhook_secret: "${{ secrets.WEBHOOK_SECRET }}"
+          webhook_secret: ${{ secrets.WEBHOOK_SECRET }}
+          data: '{"text": "Hello, this is some text\nThis is more text. :tada:"}'
       - name: exit
         run: |
           echo 'deployment completed.' 
