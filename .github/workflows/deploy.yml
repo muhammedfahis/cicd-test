@@ -54,6 +54,13 @@ jobs:
           body: Job completed ${{job.status}}
           to: muhammedfayiscc@gmail.com
           from: Me
+      - name: Invoke deployment hook
+        uses: distributhor/workflow-webhook@v2
+        env:
+          webhook_type: 'json-extended'
+          webhook_url: ${{ secrets.WEBHOOK_URL }}
+          webhook_secret: ${{ secrets.WEBHOOK_SECRET }}
+          data: '{ "weapon": "hammer", "drink" : "beer" }'
       - name: exit
         run: |
           echo 'deployment completed.' 
