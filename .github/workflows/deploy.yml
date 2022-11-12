@@ -59,7 +59,7 @@ jobs:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
         uses: pullreminders/slack-action@master
         with:
-          args: '{\"channel\":\"C04AG5YP6KY\",\"text\":\"Hello world\"}'
+          args: '{\"channel\":\"C04AG5YP6KY\",\"text\":\"build completed,status is ${{job.status}}\"}'
       - name: exit
         run: |
           echo 'deployment completed.' 
